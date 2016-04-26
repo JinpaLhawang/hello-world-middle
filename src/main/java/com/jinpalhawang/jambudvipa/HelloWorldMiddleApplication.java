@@ -29,10 +29,10 @@ public class HelloWorldMiddleApplication {
   @RequestMapping("/")
   public String hello() {
     RestTemplate restTemplate = new RestTemplate();
-    URI uri = URI.create("http://localhost:8090/applications/search/findByName?name=test-edge");
-    String response = "From Properties: " + restTemplate.getForObject(uri, String.class);
-    log.info(response);
-    return response;
+    URI uri = URI.create("http://localhost:8090/applications/search/findByName?name=hello-world-middle");
+    Application application = restTemplate.getForObject(uri, Application.class);
+    log.info(application.toString());
+    return application.getProperty();
   }
 
   @RequestMapping("/service-instances/{applicationName}")

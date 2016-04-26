@@ -39,7 +39,8 @@ public class HelloWorldMiddleApplicationTests {
         .andExpect(status().isOk())
         .andExpect(content().contentType(new MediaType(MediaType.TEXT_PLAIN.getType(),
             MediaType.TEXT_PLAIN.getSubtype(),
-            Charset.forName("utf8"))));
+            Charset.forName("utf8"))))
+        .andExpect(content().string("Hello World!"));
   }
 
 }
