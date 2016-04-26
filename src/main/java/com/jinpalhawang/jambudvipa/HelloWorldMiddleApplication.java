@@ -2,6 +2,7 @@ package com.jinpalhawang.jambudvipa;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,15 @@ public class HelloWorldMiddleApplication {
     Application application = restTemplate.getForObject(uri, Application.class);
     log.info(application.toString());
     return application.getProperty();
+  }
+
+  @RequestMapping("/properties")
+  public Map<String, String> properties() {
+    RestTemplate restTemplate = new RestTemplate();
+    URI uri = URI.create("http://localhost:8090/applications/search/findByName?name=hello-world-middle");
+    Application application = restTemplate.getForObject(uri, Application.class);
+    log.info(application.toString());
+    return application.getProperties();
   }
 
   @RequestMapping("/service-instances/{applicationName}")
