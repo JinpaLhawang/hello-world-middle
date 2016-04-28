@@ -24,7 +24,6 @@ mvn spring-boot:run
 
 ```
 curl -i http://localhost:8091
-curl -i http://localhost:8091/properties
 ```
 
 ### Checking Eureka Client Service Discovery Instance Details

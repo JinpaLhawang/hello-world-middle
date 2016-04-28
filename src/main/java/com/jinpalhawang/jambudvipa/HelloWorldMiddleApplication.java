@@ -2,7 +2,6 @@ package com.jinpalhawang.jambudvipa;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,22 +47,14 @@ class FooRestController {
   private String helloWorld;
 
   @RequestMapping("/")
-  public String hello() {
+  public String helloWorld() {
     RestTemplate restTemplate = new RestTemplate();
-    URI uri = URI.create("http://localhost:8090/applications/search/findByName?name=hello-world-middle");
-    Application application = restTemplate.getForObject(uri, Application.class);
-    log.info(application.toString());
-    log.info(helloWorld);
-    return application.getProperty();
-  }
-
-  @RequestMapping("/properties")
-  public Map<String, String> properties() {
-    RestTemplate restTemplate = new RestTemplate();
-    URI uri = URI.create("http://localhost:8090/applications/search/findByName?name=hello-world-middle");
-    Application application = restTemplate.getForObject(uri, Application.class);
-    log.info(application.toString());
-    return application.getProperties();
+    URI uri = URI.create("http://localhost:8090/accounts/search/findByFirstName?firstName=Jinpa");
+    Account account = restTemplate.getForObject(uri, Account.class);
+    log.info(account.toString());
+    String response = helloWorld.replace("World", account.getFirstName() + " " + account.getLastName());
+    log.info(response);
+    return response;
   }
 
   @RequestMapping("/service-instances/{applicationName}")

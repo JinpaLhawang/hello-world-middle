@@ -34,13 +34,13 @@ public class HelloWorldMiddleApplicationTests {
   }
 
   @Test
-  public void hello() throws Exception {
+  public void helloWorld() throws Exception {
     mockMvc.perform(get("/"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(new MediaType(MediaType.TEXT_PLAIN.getType(),
             MediaType.TEXT_PLAIN.getSubtype(),
             Charset.forName("utf8"))))
-        .andExpect(content().string("Hello World!"));
+        .andExpect(content().string("Hello Jinpa Lhawang!"));
   }
 
 }
