@@ -23,9 +23,12 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class HelloWorldMiddleApplication {
 
+  private static final Logger log = LoggerFactory.getLogger(HelloWorldMiddleApplication.class);
+
   @Autowired
   void setEnvironment(Environment e) {
-    System.out.println(e.getProperty("helloWorld"));
+    log.info("Environment Property: server.port=" + e.getProperty("server.port"));
+    log.info("Environment Property: helloWorld=" + e.getProperty("helloWorld"));
   }
 
   public static void main(String[] args) {
