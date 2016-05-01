@@ -13,7 +13,6 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,14 +24,11 @@ public class HelloWorldMiddleApplication {
 
   private static final Logger log = LoggerFactory.getLogger(HelloWorldMiddleApplication.class);
 
-  @Autowired
-  void setEnvironment(Environment e) {
-    log.info("Environment Property: server.port=" + e.getProperty("server.port"));
-    log.info("Environment Property: helloWorld=" + e.getProperty("helloWorld"));
-  }
-
   public static void main(String[] args) {
-    SpringApplication.run(HelloWorldMiddleApplication.class, args);
+    final SpringApplication app = new SpringApplication(HelloWorldMiddleApplication.class);
+    app.setLogStartupInfo(false);
+    app.run(args);
+    log.info(HelloWorldMiddleApplication.class.getSimpleName() + " started...");
   }
 
 }
