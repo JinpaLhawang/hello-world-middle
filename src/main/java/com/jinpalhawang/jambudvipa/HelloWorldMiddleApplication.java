@@ -28,7 +28,7 @@ public class HelloWorldMiddleApplication {
     final SpringApplication app = new SpringApplication(HelloWorldMiddleApplication.class);
     app.setLogStartupInfo(false);
     app.run(args);
-    log.info(HelloWorldMiddleApplication.class.getSimpleName() + " started...");
+    log.info(HelloWorldMiddleApplication.class.getSimpleName() + " started.");
   }
 
 }
