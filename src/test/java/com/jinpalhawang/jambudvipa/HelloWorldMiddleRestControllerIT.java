@@ -41,4 +41,10 @@ public class HelloWorldMiddleRestControllerIT {
     assertThat(response.getBody(), equalTo("Hello Jinpa Lhawang!"));
   }
 
+  @Test
+  public void getHelloAgain() throws Exception {
+    ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+    assertThat(response.getBody(), equalTo("Hello Jinpa Lhawang!"));
+  }
+
 }
