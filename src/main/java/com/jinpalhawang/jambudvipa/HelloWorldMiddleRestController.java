@@ -29,6 +29,13 @@ public class HelloWorldMiddleRestController {
 
   @RequestMapping("/")
   public String helloWorld() {
+    String response = "Hello Jinpa Lhawang!";
+    log.info(response);
+    return response;
+  }
+
+  @RequestMapping("/helloworldold")
+  public String helloWorldOld() {
     RestTemplate restTemplate = new RestTemplate();
     URI uri = URI.create("http://localhost:8090/accounts/search/findByFirstName?firstName=Jinpa");
     Account account = restTemplate.getForObject(uri, Account.class);
