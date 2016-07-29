@@ -1,4 +1,4 @@
-package com.jinpalhawang.jambudvipa;
+package kenzanlabs;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -18,10 +18,12 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
+import kenzanlabs.AppApplication;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = HelloWorldMiddleApplication.class)
+@SpringApplicationConfiguration(classes = AppApplication.class)
 @WebAppConfiguration
-public class HelloWorldMiddleApplicationTests {
+public class AppApplicationTests {
 
   private MockMvc mockMvc;
 
@@ -40,7 +42,7 @@ public class HelloWorldMiddleApplicationTests {
         .andExpect(content().contentType(new MediaType(MediaType.TEXT_PLAIN.getType(),
             MediaType.TEXT_PLAIN.getSubtype(),
             Charset.forName("utf8"))))
-        .andExpect(content().string("Hello Jinpa Lhawang!"));
+        .andExpect(content().string("Hello World!"));
   }
 
 }

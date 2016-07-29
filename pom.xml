@@ -6,13 +6,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.jinpalhawang.jambudvipa</groupId>
-  <artifactId>hello-world-middle</artifactId>
+  <groupId>kenzanlabs</groupId>
+  <artifactId>basic-spring-boot-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>hello-world-middle</name>
-  <description>Hello World Service in Middle Tier</description>
+  <name>basic-spring-boot-web</name>
+  <description>Basic Spring Boot Web</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -26,21 +26,6 @@
   </properties>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-config</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-hystrix</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
