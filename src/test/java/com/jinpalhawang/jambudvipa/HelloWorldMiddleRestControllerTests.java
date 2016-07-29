@@ -1,4 +1,4 @@
-package kenzanlabs;
+package com.jinpalhawang.jambudvipa;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -16,19 +16,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import kenzanlabs.AppRestController;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
-public class AppRestControllerTests {
+public class HelloWorldMiddleRestControllerTests {
 
   private MockMvc mockMvc;
 
   @Before
   public void setUp() {
     mockMvc = MockMvcBuilders
-        .standaloneSetup(new AppRestController())
+        .standaloneSetup(new HelloWorldMiddleRestController())
         .build();
   }
 
@@ -36,7 +34,7 @@ public class AppRestControllerTests {
   public void getHelloWorld() throws Exception {
     mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_PLAIN))
         .andExpect(status().isOk())
-        .andExpect(content().string(equalTo("Hello World!")));
+        .andExpect(content().string(equalTo("Hello Jinpa Lhawang!")));
   }
 
 }

@@ -1,4 +1,4 @@
-package kenzanlabs;
+package com.jinpalhawang.jambudvipa;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.*;
@@ -17,13 +17,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
-import kenzanlabs.AppApplication;
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = AppApplication.class)
+@SpringApplicationConfiguration(classes = HelloWorldMiddleApplication.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class AppRestControllerIT {
+public class HelloWorldMiddleRestControllerIT {
 
   @Value("${local.server.port}")
   private int port;
@@ -40,13 +38,13 @@ public class AppRestControllerIT {
   @Test
   public void getHello() throws Exception {
     ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-    assertThat(response.getBody(), equalTo("Hello World!"));
+    assertThat(response.getBody(), equalTo("Hello Jinpa Lhawang!"));
   }
 
   @Test
   public void getHelloAgain() throws Exception {
     ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-    assertThat(response.getBody(), equalTo("Hello World!"));
+    assertThat(response.getBody(), equalTo("Hello Jinpa Lhawang!"));
   }
 
 }
